@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Fernando Cruz</title>
+    <link rel="stylesheet" href="Estilo_papa.css">
+</head>
+
+<body class="noscroll">
+    <section class="bienvenida">
+        <div class="texto1">
+            <h1>Invitación a la fiesta de cumpleaños</h1>
+            <h2>¡Estás cordialmente invitado al cumpleaños de Fernando Cruz!</h2>
+            <a href="#detalles">Ver detalles</a>
+        </div>
+    </section>
+    <nav>
+        <h3>Detalles del evento</h3>
+    </nav>
+    <section class="detalles">
+        <div class="contenido-evento">
+            <ul id="detalles">
+                <li>Fecha: 27 de Septiembre de 2025</li>
+                <li>Hora: 6:00 PM</li>
+                <li>Lugar: Pizza Krispys La Mascota</li>
+            </ul>
+            <div>
+                <a href="https://www.google.com/maps/place/krisppy's+la+mascota" target="_blank" rel="noopener noreferrer">
+                    <img id="mapa" src="mapa.png" alt="Ver en Google Maps">
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const boton = document.querySelector('.bienvenida .texto1 a');
+        const detalles = document.querySelector('.detalles');
+
+        function permitirScroll() {
+            document.body.classList.remove('noscroll');
+        }
+
+        // Al hacer clic en el botón, activar scroll y hacer scroll suave
+        boton.addEventListener('click', function (e) {
+            e.preventDefault();
+            permitirScroll();
+            detalles.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Detectar si el usuario ha hecho scroll hasta la sección de detalles
+        window.addEventListener('scroll', function () {
+            const detallesTop = detalles.getBoundingClientRect().top;
+            if (detallesTop <= window.innerHeight / 2) {
+                permitirScroll();
+            }
+        });
+    });
+</script>
+
+
+</html>
